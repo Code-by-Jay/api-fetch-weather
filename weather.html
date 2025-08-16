@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api fetch</title>
+</head>
+<body>
+  <style>
+/* General Page Styling */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #6dd5ed, #2193b0);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  color: #333;
+}
+
+/* Weather Section Container */
+#weather {
+  background: white;
+  margin-top: 40px;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+  width: 400px;
+  animation: fadeIn 0.8s ease-in-out;
+  text-align: center;
+}
+
+/* Title */
+#weather h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #222;
+}
+
+/* Input & Button Container */
+.weather-inputs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.weather-inputs input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.weather-inputs input:focus {
+  border-color: #2193b0;
+  outline: none;
+  box-shadow: 0 0 5px rgba(33,147,176,0.4);
+}
+
+.weather-inputs button {
+  background: #2193b0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.weather-inputs button:hover {
+  background: #176b80;
+}
+
+/* Tabs */
+.weather-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px;
+  background: #eee;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.tab-btn.active {
+  background: #2193b0;
+  color: white;
+}
+
+.tab-btn:hover:not(.active) {
+  background: #ddd;
+}
+
+/* Loading Indicator */
+.loading {
+  display: none;
+  margin: 15px 0;
+  font-size: 14px;
+  color: #2193b0;
+  font-weight: bold;
+}
+
+/* Forecast Results */
+#weatherResult {
+  text-align: left;
+}
+
+.tab-content {
+  display: none;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 10px rgba(0,0,0,0.05);
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Forecast Cards */
+.forecast-card {
+  background: white;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.forecast-card span {
+  font-weight: bold;
+  color: #2193b0;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+  </style>
+     <section id="weather">
+  <h2>🌤️ Weather Forecast</h2>
+  <div class="weather-inputs">
+    <input type="text" id="cityInput" placeholder="Enter city name">
+     <button onclick="getWeatherByCity()">Get Forecast</button>
+  </div>
+    <div id="weatherTabs" class="weather-tabs">
+    <button class="tab-btn active" onclick="showTab('today')">Today</button>
+    <button class="tab-btn" onclick="showTab('week')">7-Day Forecast</button>
+  </div>
+
+  <div id="loading" class="loading">Loading...</div>
+
+  <div id="weatherResult">
+    <div id="todayForecast" class="tab-content"></div>
+    <div id="weekForecast" class="tab-content" style="display: none;"></div>
+  </div>
+
+
+
+
+
+
+
+
+ <script src="weather.js"></script>
+</body>
+</html>
